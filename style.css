@@ -1,0 +1,46 @@
+body{
+    background:dodgerblue;
+}
+.Container{
+    width: 60%;
+    margin: auto;
+    background:white;
+    border-radius: 8px;
+}
+h1{
+    text-align: center;
+}
+.inputButton{
+    text-align: center;
+}
+.input{
+    width: 70%;
+    height: 40px;
+    border-radius: 8px;
+    border-color: dodgerblue;
+}
+.addBtn{
+    width: 15%;
+    height:45px; 
+    border-radius: 8px;
+    background:dodgerblue;
+    border-color: white;
+    color: white;
+}
+ul{
+    padding: 0 40px;
+}
+li{
+    border-radius:8px;
+    height: 45px;
+    background-color: #A0D2E7;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+a,i{
+    padding: 25px;
+    text-decoration: none;
+}

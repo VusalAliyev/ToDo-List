@@ -1,17 +1,36 @@
 const form = document.querySelector("form");
 const input = document.querySelector("input");
 const ul = document.querySelector(".myUl");
+const todos = JSON.parse(localStorage.getItem("todos")) || []; //array
 
-let todos = [];
 
 form.addEventListener("submit", addTodo);
+document.addEventListener("DOMContentLoaded",loadTodosToUI)
+
+function loadTodosToUI(){
+    todos.forEach(todo => {
+      addTodoToUI(todo)
+    });
+}
 
 function addTodo(e) {
   const newToDo = input.value.trim();
-  addTodoToUI(newToDo);
+  if (newToDo ==="") {
+    alert("Boş keçilə bilməz")
+  }
+  else{
+    addTodoToUI(newToDo);
+    addToDoToStorage();
+  }
 
   e.preventDefault();
 }
+
+function addToDoToStorage(){
+  localStorage.setItem("todos", JSON.stringify(todos)); 
+}
+
+
 function addTodoToUI(newToDo) {
   todos.push(newToDo);
   const listItem = document.createElement("li");
@@ -23,6 +42,15 @@ function addTodoToUI(newToDo) {
     <i class="fas fa-trash"></i>`;
     ul.appendChild(listItem);
   }
+  
+  // const listItem = document.createElement("li");
+  // const link=document.createElement("a");
+  // link.innerHTM=`<i class="fas fa-trash"></i>`
+  
+  // listItem.appendChild(document.createTextNode(newToDo))
+  // listItem.appendChild(link)
 
+  // ul.appendChild(listItem)
+  
   input.value = "";
 }
